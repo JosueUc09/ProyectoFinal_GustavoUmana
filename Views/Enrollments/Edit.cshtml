@@ -1,0 +1,22 @@
+<form method="post">
+<input type="hidden" asp-for="Id" />
+@model ProyectoFinal.Models.Enrollment
+@{ Layout = "_Layout"; }
+<div class="card p-3">
+<div class="mb-3">
+  <label class="form-label">Curso</label>
+  <select asp-for="CourseId" asp-items="ViewBag.CourseId" class="form-select"></select>
+</div>
+<div class="mb-3">
+  <label class="form-label">Nombre del estudiante</label>
+  <input asp-for="StudentName" class="form-control" />
+</div>
+<div class="mb-3">
+  <label class="form-label">Correo del estudiante</label>
+  <input asp-for="StudentEmail" class="form-control" />
+</div>
+<button class="btn btn-primary">Guardar</button>
+<a href="/Enrollments" class="btn btn-secondary">Cancelar</a>
+</div>
+
+</form>

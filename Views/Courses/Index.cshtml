@@ -1,0 +1,24 @@
+@model IEnumerable<ProyectoFinal.Models.Course>
+@{ Layout = "_Layout"; }
+<h2>Cursos</h2>
+@if (User.IsInRole("Admin"))
+{ <p><a class="btn btn-primary" href="/Courses/Create">Nuevo Curso</a></p> }
+<table class="table table-striped">
+<thead><tr><th>Curso</th><th>Carrera</th><th>Créditos</th><th></th></tr></thead>
+<tbody>
+@foreach (var c in Model){
+<tr>
+  <td>@c.Name</td>
+  <td>@c.Career?.Name</td>
+  <td>@c.Credits</td>
+  <td>
+    @if (User.IsInRole("Admin"))
+    {
+        <a class="btn btn-warning btn-sm" href="/Courses/Edit/@c.Id">Editar</a>
+        <a class="btn btn-danger btn-sm" href="/Courses/Delete/@c.Id">Eliminar</a>
+    }
+  </td>
+</tr>
+}
+</tbody>
+</table>
