@@ -1,0 +1,8 @@
+@model ProyectoFinal.Models.Enrollment
+@{Layout="_Layout";}
+<h2>Eliminar Matrícula</h2>
+<form method="post">
+<p>¿Eliminar la matrícula de <strong>@Model.StudentName</strong> en <strong>@Model.Course!.Name</strong>?</p>
+<button class="btn btn-danger">Eliminar</button>
+<a href="/Enrollments" class="btn btn-secondary">Cancelar</a>
+</form>

@@ -1,0 +1,21 @@
+@model IEnumerable<ProyectoFinal.Models.Enrollment>
+@{ Layout="_Layout"; }
+<h2>Matrículas</h2>
+<p><a class="btn btn-primary" href="/Enrollments/Create">Nueva Matrícula</a></p>
+<table class="table table-striped">
+<thead><tr><th>Curso</th><th>Estudiante</th><th>Correo</th><th>Fecha</th><th></th></tr></thead>
+<tbody>
+@foreach (var e in Model){
+<tr>
+  <td>@e.Course?.Name</td>
+  <td>@e.StudentName</td>
+  <td>@e.StudentEmail</td>
+  <td>@e.EnrolledAt.ToLocalTime().ToString("g")</td>
+  <td>
+    <a class="btn btn-warning btn-sm" href="/Enrollments/Edit/@e.Id">Editar</a>
+    <a class="btn btn-danger btn-sm" href="/Enrollments/Delete/@e.Id">Eliminar</a>
+  </td>
+</tr>
+}
+</tbody>
+</table>
