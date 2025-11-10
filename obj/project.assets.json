@@ -4760,11 +4760,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Josue\\Downloads\\ProyectoFinal\\ProyectoFinal\\ProyectoFinal.csproj",
+      "projectUniqueName": "C:\\Users\\Josue\\Downloads\\ProyectoFinal (1)\\ProyectoFinal_GustavoUmana\\ProyectoFinal.csproj",
       "projectName": "ProyectoFinal",
-      "projectPath": "C:\\Users\\Josue\\Downloads\\ProyectoFinal\\ProyectoFinal\\ProyectoFinal.csproj",
+      "projectPath": "C:\\Users\\Josue\\Downloads\\ProyectoFinal (1)\\ProyectoFinal_GustavoUmana\\ProyectoFinal.csproj",
       "packagesPath": "C:\\Users\\Josue\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Josue\\Downloads\\ProyectoFinal\\ProyectoFinal\\obj\\",
+      "outputPath": "C:\\Users\\Josue\\Downloads\\ProyectoFinal (1)\\ProyectoFinal_GustavoUmana\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Josue\\AppData\\Roaming\\NuGet\\NuGet.Config"
