@@ -1,0 +1,40 @@
+@model IEnumerable<ProyectoFinal.Models.Course>
+
+@foreach (var c in Model)
+{
+<tr>
+    <td>@c.Name</td>
+    <td>@c.Career?.Name</td>
+    <td>@(c.Teacher != null ? c.Teacher.Name : "Sin asignar")</td>
+    <td>@c.Credits</td>
+    <td>
+        @if (User.IsInRole("Admin"))
+        {
+            <a class="btn btn-warning btn-sm" href="/Courses/Edit/@c.Id">Editar</a>
+            <a class="btn btn-danger btn-sm" href="/Courses/Delete/@c.Id">Eliminar</a>
+        }
+    </td>
+</tr>
+}
+
+@if (ViewBag.TotalPages > 1)
+{
+<tr>
+    <td colspan="5">
+        <nav>
+            <ul class="pagination">
+                @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                {
+                    <li class="page-item @(ViewBag.Page == i ? "active" : "")">
+                        <a class="page-link"
+                           href="javascript:void(0)"
+                           onclick="loadCourses(@i)">
+                            @i
+                        </a>
+                    </li>
+                }
+            </ul>
+        </nav>
+    </td>
+</tr>
+}

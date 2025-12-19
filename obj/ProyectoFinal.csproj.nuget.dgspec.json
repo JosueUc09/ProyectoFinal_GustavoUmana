@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Josue\\Downloads\\ProyectoFinal (1)\\ProyectoFinal_GustavoUmana\\ProyectoFinal.csproj": {}
+    "D:\\Josué\\VI CUATRIMESTRE\\ProyectoVisualStudio_ProyectoFinal\\ProyectoFinal_GustavoUmana\\ProyectoFinal_GustavoUmana\\ProyectoFinal.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Josue\\Downloads\\ProyectoFinal (1)\\ProyectoFinal_GustavoUmana\\ProyectoFinal.csproj": {
+    "D:\\Josué\\VI CUATRIMESTRE\\ProyectoVisualStudio_ProyectoFinal\\ProyectoFinal_GustavoUmana\\ProyectoFinal_GustavoUmana\\ProyectoFinal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Josue\\Downloads\\ProyectoFinal (1)\\ProyectoFinal_GustavoUmana\\ProyectoFinal.csproj",
+        "projectUniqueName": "D:\\Josué\\VI CUATRIMESTRE\\ProyectoVisualStudio_ProyectoFinal\\ProyectoFinal_GustavoUmana\\ProyectoFinal_GustavoUmana\\ProyectoFinal.csproj",
         "projectName": "ProyectoFinal",
-        "projectPath": "C:\\Users\\Josue\\Downloads\\ProyectoFinal (1)\\ProyectoFinal_GustavoUmana\\ProyectoFinal.csproj",
+        "projectPath": "D:\\Josué\\VI CUATRIMESTRE\\ProyectoVisualStudio_ProyectoFinal\\ProyectoFinal_GustavoUmana\\ProyectoFinal_GustavoUmana\\ProyectoFinal.csproj",
         "packagesPath": "C:\\Users\\Josue\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Josue\\Downloads\\ProyectoFinal (1)\\ProyectoFinal_GustavoUmana\\obj\\",
+        "outputPath": "D:\\Josué\\VI CUATRIMESTRE\\ProyectoVisualStudio_ProyectoFinal\\ProyectoFinal_GustavoUmana\\ProyectoFinal_GustavoUmana\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Josue\\AppData\\Roaming\\NuGet\\NuGet.Config"

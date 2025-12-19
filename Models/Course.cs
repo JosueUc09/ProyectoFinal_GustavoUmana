@@ -18,6 +18,10 @@ namespace ProyectoFinal.Models
         [Range(1, 10)]
         public int Credits { get; set; } = 3;
 
+        public int? TeacherId { get; set; }
+        public Teacher? Teacher { get; set; }
+
+
         public ICollection<Enrollment> Enrollments { get; set; } = new List<Enrollment>();
     }
 }

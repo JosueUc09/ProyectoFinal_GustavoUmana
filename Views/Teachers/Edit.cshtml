@@ -1,0 +1,27 @@
+@model ProyectoFinal.Models.Teacher
+@{
+    Layout = "_Layout";
+}
+
+<h2>Editar Profesor</h2>
+
+<form method="post">
+    @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="Id" />
+
+    <div class="card p-3">
+
+        <div class="mb-3">
+            <label class="form-label">Nombre</label>
+            <input asp-for="Name" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input asp-for="Email" class="form-control" />
+        </div>
+
+        <button class="btn btn-primary">Guardar</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </div>
+</form>

@@ -63,9 +63,14 @@ namespace ProyectoFinal.Migrations
                         .HasMaxLength(80)
                         .HasColumnType("nvarchar(80)");
 
+                    b.Property<int?>("TeacherId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CareerId");
+
+                    b.HasIndex("TeacherId");
 
                     b.ToTable("Courses");
                 });
@@ -88,6 +93,9 @@ namespace ProyectoFinal.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("StudentId")
+                        .HasColumnType("int");
+
                     b.Property<string>("StudentName")
                         .IsRequired()
                         .HasMaxLength(120)
@@ -97,7 +105,31 @@ namespace ProyectoFinal.Migrations
 
                     b.HasIndex("CourseId");
 
+                    b.HasIndex("StudentId");
+
                     b.ToTable("Enrollments");
+                });
+
+            modelBuilder.Entity("ProyectoFinal.Models.Teacher", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(120)
+                        .HasColumnType("nvarchar(120)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Teachers");
                 });
 
             modelBuilder.Entity("ProyectoFinal.Models.User", b =>
@@ -129,6 +161,28 @@ namespace ProyectoFinal.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("Student", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(120)
+                        .HasColumnType("nvarchar(120)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Students");
+                });
+
             modelBuilder.Entity("ProyectoFinal.Models.Course", b =>
                 {
                     b.HasOne("ProyectoFinal.Models.Career", "Career")
@@ -137,7 +191,13 @@ namespace ProyectoFinal.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("ProyectoFinal.Models.Teacher", "Teacher")
+                        .WithMany()
+                        .HasForeignKey("TeacherId");
+
                     b.Navigation("Career");
+
+                    b.Navigation("Teacher");
                 });
 
             modelBuilder.Entity("ProyectoFinal.Models.Enrollment", b =>
@@ -148,6 +208,10 @@ namespace ProyectoFinal.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Student", null)
+                        .WithMany("Enrollments")
+                        .HasForeignKey("StudentId");
+
                     b.Navigation("Course");
                 });
 
@@ -157,6 +221,11 @@ namespace ProyectoFinal.Migrations
                 });
 
             modelBuilder.Entity("ProyectoFinal.Models.Course", b =>
+                {
+                    b.Navigation("Enrollments");
+                });
+
+            modelBuilder.Entity("Student", b =>
                 {
                     b.Navigation("Enrollments");
                 });

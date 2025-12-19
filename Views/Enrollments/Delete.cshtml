@@ -1,8 +1,38 @@
 @model ProyectoFinal.Models.Enrollment
-@{Layout="_Layout";}
-<h2>Eliminar Matrícula</h2>
-<form method="post">
-<p>¿Eliminar la matrícula de <strong>@Model.StudentName</strong> en <strong>@Model.Course!.Name</strong>?</p>
-<button class="btn btn-danger">Eliminar</button>
-<a href="/Enrollments" class="btn btn-secondary">Cancelar</a>
-</form>
+@{
+    Layout = "_Layout";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-danger text-white">
+                <h5 class="mb-0">Eliminar Matrícula</h5>
+            </div>
+
+            <div class="card-body">
+                <p class="mb-4">
+                    ¿Está seguro que desea eliminar la matrícula de
+                    <strong>@Model.StudentName</strong>
+                    en el curso
+                    <strong>@Model.Course!.Name</strong>?
+                </p>
+
+                <form method="post">
+                    @Html.AntiForgeryToken()
+
+                    <div class="d-flex justify-content-end">
+                        <a href="/Enrollments" class="btn btn-outline-secondary me-2">
+                            Cancelar
+                        </a>
+                        <button type="submit" class="btn btn-danger">
+                            Eliminar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>

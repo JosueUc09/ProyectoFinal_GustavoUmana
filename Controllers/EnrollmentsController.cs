@@ -16,13 +16,13 @@ namespace ProyectoFinal.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var list = await _db.Enrollments.Include(e=>e.Course).ThenInclude(c=>c.Career).AsNoTracking().ToListAsync();
+            var list = await _db.Enrollments.Include(e => e.Course).ThenInclude(c => c.Career).AsNoTracking().ToListAsync();
             return View(list);
         }
 
         public IActionResult Create()
         {
-            ViewBag.CourseId = new SelectList(_db.Courses.Include(c=>c.Career).AsNoTracking()
+            ViewBag.CourseId = new SelectList(_db.Courses.Include(c => c.Career).AsNoTracking()
                 .Select(c => new { c.Id, Label = c.Name + " (" + c.Career!.Name + ")" }).ToList(), "Id", "Label");
             return View();
         }
@@ -32,7 +32,7 @@ namespace ProyectoFinal.Controllers
         {
             if (!ModelState.IsValid)
             {
-                ViewBag.CourseId = new SelectList(_db.Courses.Include(c=>c.Career).AsNoTracking()
+                ViewBag.CourseId = new SelectList(_db.Courses.Include(c => c.Career).AsNoTracking()
                     .Select(c => new { c.Id, Label = c.Name + " (" + c.Career!.Name + ")" }).ToList(), "Id", "Label", e.CourseId);
                 return View(e);
             }
@@ -64,7 +64,7 @@ namespace ProyectoFinal.Controllers
 
         public async Task<IActionResult> Delete(int id)
         {
-            var e = await _db.Enrollments.Include(x=>x.Course).FirstOrDefaultAsync(x=>x.Id==id);
+            var e = await _db.Enrollments.Include(x => x.Course).FirstOrDefaultAsync(x => x.Id == id);
             if (e == null) return NotFound();
             return View(e);
         }
@@ -76,5 +76,35 @@ namespace ProyectoFinal.Controllers
             if (e != null) { _db.Remove(e); await _db.SaveChangesAsync(); }
             return RedirectToAction(nameof(Index));
         }
+        [Authorize(Roles = "Student")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EnrollAjax(int courseId)
+        {
+            var email = User.Identity!.Name;
+            var name = User.Identity!.Name; // o puedes usar Claim si luego quieres
+
+            bool exists = await _db.Enrollments.AnyAsync(e =>
+                e.StudentEmail == email && e.CourseId == courseId);
+
+            if (exists)
+                return Json(new { success = false, message = "Ya estás matriculado en este curso" });
+
+            var enrollment = new Enrollment
+            {
+                CourseId = courseId,
+                StudentName = name,
+                StudentEmail = email,
+                EnrolledAt = DateTime.UtcNow
+            };
+
+            _db.Enrollments.Add(enrollment);
+            await _db.SaveChangesAsync();
+
+            return Json(new { success = true, message = "Matrícula realizada correctamente" });
+        }
+
+
+
     }
 }

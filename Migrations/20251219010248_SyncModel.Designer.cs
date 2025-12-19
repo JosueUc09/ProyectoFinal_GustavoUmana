@@ -12,8 +12,8 @@ using ProyectoFinal.Data;
 namespace ProyectoFinal.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251104050646_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20251219010248_SyncModel")]
+    partial class SyncModel
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

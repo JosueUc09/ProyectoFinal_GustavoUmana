@@ -1,10 +1,40 @@
 @{
     Layout = "_Layout";
 }
-<div class="p-5 mb-4 bg-light rounded-3">
-  <div class="container-fluid py-5">
-    <h1 class="display-5 fw-bold">Sistema Académico — Proyecto Final</h1>
-    <p class="col-md-8 fs-5">Este demo incluye autenticación con roles, CRUD de Carreras, Cursos y Matrículas.</p>
-    <a href="/Accounts/Login" class="btn btn-primary btn-lg">Comenzar</a>
-  </div>
+
+<div class="container mt-5">
+
+    <div class="card shadow-lg border-0">
+        <div class="card-body p-5 text-center bg-primary text-white rounded">
+
+            <h1 class="display-5 fw-bold mb-3">
+                Sistema Académico
+            </h1>
+
+            <p class="fs-5 mb-4">
+                Proyecto Final — ASP.NET Core MVC
+            </p>
+
+            <p class="fs-6 mb-4">
+                Plataforma académica que permite la gestión de <strong>usuarios</strong>,
+                <strong>carreras</strong>, <strong>cursos</strong> y <strong>matrículas</strong>,
+                incorporando seguridad por roles y solicitudes asíncronas con AJAX.
+            </p>
+
+            @if (!User.Identity!.IsAuthenticated)
+            {
+                <a href="/Accounts/Login" class="btn btn-light btn-lg px-4">
+                    Iniciar sesión
+                </a>
+            }
+            else
+            {
+                <a href="/Courses" class="btn btn-light btn-lg px-4">
+                    Ir al sistema
+                </a>
+            }
+
+        </div>
+    </div>
+
 </div>

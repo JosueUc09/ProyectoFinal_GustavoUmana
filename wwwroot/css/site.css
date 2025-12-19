@@ -1,0 +1,116 @@
+
+/* =========================
+   ESTILO INSTITUCIONAL GLOBAL
+   ========================= */
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #0f172a, #1e293b);
+    color: #e5e7eb;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+/* NAVBAR */
+.navbar {
+    background-color: #020617 !important;
+}
+
+.navbar-brand,
+.nav-link {
+    color: #e5e7eb !important;
+}
+
+.nav-link:hover {
+    color: #60a5fa !important;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.container {
+    background-color: transparent;
+}
+
+/* TITULOS */
+h1, h2, h3 {
+    color: #f8fafc;
+}
+
+/* CARDS */
+.card {
+    background-color: #020617;
+    border: 1px solid #1e293b;
+    color: #e5e7eb;
+}
+
+/* TABLAS */
+.table {
+    color: #e5e7eb;
+}
+
+.table thead {
+    background-color: #020617;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #020617;
+}
+
+/* INPUTS */
+.form-control,
+.form-select {
+    background-color: transparent;
+    color: #e5e7eb;
+    border: 1px solid #334155;
+}
+
+.form-control:focus,
+.form-select:focus {
+    background-color: transparent;
+    color: #ffffff;
+    border-color: #3b82f6;
+    box-shadow: none;
+}
+
+/* BOTONES */
+.btn-primary {
+    background-color: #2563eb;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #1d4ed8;
+}
+
+.btn-warning {
+    color: #000;
+}
+
+.btn-danger {
+    background-color: #dc2626;
+}
+
+/* ALERTAS */
+.alert {
+    border-radius: 6px;
+}
+
+/* LINKS */
+a {
+    color: #60a5fa;
+}
+
+a:hover {
+    color: #93c5fd;
+}
+/* FIX GLOBAL PARA INPUTS EN FONDO OSCURO */
+.form-control,
+.form-select {
+    background-color: #ffffff !important;
+    color: #212529 !important;
+}
+
+/* OPCIONES DEL SELECT */
+.form-select option {
+    color: #212529 !important;
+    background-color: #ffffff !important;
+}
+

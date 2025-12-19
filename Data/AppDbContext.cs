@@ -11,6 +11,8 @@ namespace ProyectoFinal.Data
         public DbSet<User> Users => Set<User>();
         public DbSet<Career> Careers => Set<Career>();
         public DbSet<Course> Courses => Set<Course>();
+        public DbSet<Teacher> Teachers => Set<Teacher>();
+        public DbSet<Student> Students { get; set; }
         public DbSet<Enrollment> Enrollments => Set<Enrollment>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -1,8 +1,39 @@
 @model ProyectoFinal.Models.Career
-@{Layout="_Layout";}
-<h2>Eliminar Carrera</h2>
-<form method="post">
-<p>¿Eliminar <strong>@Model.Name</strong>?</p>
-<button class="btn btn-danger">Eliminar</button>
-<a href="/Careers" class="btn btn-secondary">Cancelar</a>
-</form>
+@{
+    Layout = "_Layout";
+}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6 col-lg-5">
+        <div class="card shadow border-0">
+
+            <!-- Header azul -->
+            <div class="card-header bg-primary text-white text-center">
+                <h4 class="mb-0">Eliminar Carrera</h4>
+            </div>
+
+            <div class="card-body p-4 text-center">
+
+                <p class="fs-5">
+                    ¿Está seguro que desea eliminar la carrera
+                    <strong>@Model.Name</strong>?
+                </p>
+
+                <form method="post" class="mt-4">
+
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="/Careers" class="btn btn-outline-secondary">
+                            Cancelar
+                        </a>
+
+                        <button type="submit" class="btn btn-danger">
+                            Eliminar
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
